@@ -25,4 +25,5 @@ if __name__ == '__main__':
     radius = float(input('Radius: '))
     area_of_circle = math.pi*radius**2
     for points in [10**3, 10**5, 10**6]:
-        print('Area: {0}, Estimated ({1}): {2}'.format(area_of_circle, points, estimate(radius, points)))
+        print('Area: {0}, Estimated ({1}): {2}'.
+              format(area_of_circle, points, estimate(radius, points)))
