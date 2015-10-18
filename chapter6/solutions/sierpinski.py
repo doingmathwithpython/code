@@ -62,7 +62,8 @@ def draw_sierpinski(n):
     return x, y
 
 if __name__ == '__main__':
-    n = int(input('Enter the desired number of points in the Sierpinski Triangle: '))
+    n = int(input('Enter the desired number of points'
+                  'in the Sierpinski Triangle: '))
     x, y = draw_sierpinski(n)
     # Plot the points
     plt.plot(x, y, 'o')
