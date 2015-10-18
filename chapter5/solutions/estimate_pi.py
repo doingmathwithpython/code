@@ -23,4 +23,5 @@ def estimate(total_points):
 
 if __name__ == '__main__':
     for points in [10**3, 10**5, 10**6]:
-        print('Known value: {0}, Estimated ({1}): {2}'.format(math.pi, points, estimate(points)))
+        print('Known value: {0}, Estimated ({1}): {2}'.
+              format(math.pi, points, estimate(points)))
