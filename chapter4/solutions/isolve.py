@@ -5,7 +5,8 @@ Single variable inequality solver
 '''
 
 from sympy import Symbol, sympify, SympifyError
-from sympy import solve_poly_inequality, solve_rational_inequalities, solve_univariate_inequality, Poly
+from sympy import solve_poly_inequality, solve_rational_inequalities
+from sympy import solve_univariate_inequality, Poly
 from sympy.core.relational import Relational, Equality
 
 def isolve(ineq_obj):
