@@ -23,7 +23,8 @@ def play(start_amount):
         else:
             cur_amount -= loss_amount
             print('Tails! Current amount: {0}'.format(cur_amount))
-    print('Game over :( Current amount: {0}. Coin tosses: {1}'.format(cur_amount, tosses))
+    print('Game over :( Current amount: {0}. Coin tosses: {1}'.
+          format(cur_amount, tosses))
 
 if __name__ == '__main__':
     start_amount = float(input('Enter your starting amount: '))
