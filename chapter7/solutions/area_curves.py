@@ -24,4 +24,5 @@ if __name__ == '__main__':
         print('One of the functions entered is invalid')
     else:
         var = Symbol(var)
-        print('Area enclosed by {0} and {1} is: {2} '.format(f, g, find_area(f, g, var, l, u)))
+        print('Area enclosed by {0} and {1} is: {2} '.
+              format(f, g, find_area(f, g, var, l, u)))
