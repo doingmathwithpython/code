@@ -23,4 +23,5 @@ if __name__ == '__main__':
         print('Invalid function entered')
     else:
         var = Symbol(var)
-        print('Length of {0} between {1} and {2} is: {3} '.format(f, l, u, find_length(f, var, l, u)))
+        print('Length of {0} between {1} and {2} is: {3} '.
+              format(f, l, u, find_length(f, var, l, u)))
