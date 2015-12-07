@@ -11,6 +11,7 @@ def even_odd_vending(num):
     else:
         print('Odd')
     count = 1
+    print(num)
     while count <= 9:
         num += 2
         print(num)
