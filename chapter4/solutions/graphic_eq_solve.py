@@ -18,7 +18,7 @@ def solve_plot_equations(eq1, eq2, x, y):
     # Plot
     eq1_y = solve(eq1,'y')[0]
     eq2_y = solve(eq2, 'y')[0]
-    plot(eq1_y, eq2_y, legend=True)
+    plot(eq1_y, eq2_y, legend=True, show=False)
     
  
 
@@ -38,7 +38,7 @@ if __name__=='__main__':
         # check if the expressions consist of only two variables
         eq1_symbols = eq1.atoms(Symbol)
         eq2_symbols = eq2.atoms(Symbol)
-        
+
         if len(eq1_symbols)> 2 or len(eq2_symbols) > 2:
             print('The equations must have only two variables - x and y')
         elif x not in eq1_symbols or y not in eq1_symbols:
