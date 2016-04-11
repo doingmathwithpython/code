@@ -8,8 +8,9 @@ import matplotlib.pyplot as plt
 
 def draw_graph(x, y):
     plt.plot(x, y)
-    plt.show()
-
+    #plt.show()
+    plt.savefig('quad_function_plot.png')
+    
 if __name__ == '__main__':
     # assume values of x
     x_values = range(-100, 100, 20)

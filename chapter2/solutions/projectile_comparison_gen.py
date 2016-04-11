@@ -66,4 +66,5 @@ if __name__ == '__main__':
     for i in range(0, num_trajectories):
         legends.append('{0} - {1}'.format(velocities[i], math.degrees(angles[i])))
     plt.legend(legends)
-    plt.show()
+    #plt.show()
+    plt.savefig('projectile_comparison_gen.png')

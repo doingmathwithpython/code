@@ -20,7 +20,8 @@ def create_bar_chart(data, labels):
     plt.title('Weekly expenditures')
     # Turns on the grid which may assist in visual estimation
     plt.grid()
-    plt.show()
+    #plt.show()
+    plt.savefig('expenditures_barchar.png')
 
 if __name__ == '__main__':
     n = int(input('Enter the number of categories: '))

@@ -13,7 +13,8 @@ def plot_forecast():
 
     plt.plot(time_interval, forecast_temp, 'o-')
     plt.xticks(time_interval, time_of_day)
-    plt.show()
+    #plt.show()
+    plt.savefig('nyc_forecase_basic.png')
 
 if __name__ == '__main__':
     plot_forecast()

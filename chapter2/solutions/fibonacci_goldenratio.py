@@ -32,7 +32,8 @@ def plot_ratio(series):
     plt.title('Ratio between Fibonacci numbers & Golden ratio')
     plt.ylabel('Ratio')
     plt.xlabel('No.')
-    plt.show()
+    #plt.show()
+    plt.savefig('fibonacci_goldenratio.png')
 
 if __name__ == '__main__':
     # Number of fibonacci numbers
