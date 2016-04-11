@@ -73,4 +73,5 @@ if __name__ == '__main__':
     plot_population(population, years)
     growth = calculate_stats(population)
     plot_population_diff(growth, years)
-    plt.show()
+    #plt.show()
+    plt.savefig('us_population_stats.png')
