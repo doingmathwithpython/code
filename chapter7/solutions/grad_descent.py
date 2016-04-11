@@ -48,7 +48,8 @@ def create_plot(X_traversed, f, var):
     f_traversed = [f.subs({var:x}) for x in X_traversed]
     plt.plot(X_traversed, f_traversed, 'r.')
     plt.legend(['Function', 'Intermediate points'], loc='best')
-    plt.show()
+    #plt.show()
+    plt.savefig('grad_descent.png')
 
 if __name__ == '__main__':
 
