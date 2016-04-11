@@ -37,4 +37,4 @@ if __name__ == '__main__':
                                    frames = len(x),
                                    interval = 25)
     plt.title('Henon Function Animation')
-    plt.show()
+    #plt.show()

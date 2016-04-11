@@ -30,4 +30,5 @@ if __name__ == '__main__':
         y += 1.0
 
     plt.axis('scaled') 
-    plt.show()  
+    #plt.show()
+    plt.savefig('circle_in_square.png')

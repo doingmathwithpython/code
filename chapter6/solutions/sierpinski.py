@@ -68,4 +68,4 @@ if __name__ == '__main__':
     # Plot the points
     plt.plot(x, y, 'o')
     plt.title('Sierpinski with {0} points'.format(n))
-    plt.show()
+    plt.savefig('sierpinski.png')

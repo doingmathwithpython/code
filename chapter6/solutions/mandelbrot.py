@@ -56,4 +56,6 @@ if __name__ == '__main__':
     image = mandelbrot_set()
     plt.imshow(image, origin='lower', extent=(x0, x1, y0,y1),
                cmap=cm.Greys_r, interpolation='nearest')
-    plt.show()
+    #plt.show()
+    plt.savefig('mandelbrot.png')
+

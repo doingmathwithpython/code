@@ -22,4 +22,5 @@ if __name__ == '__main__':
         x.append(p[0])
         y.append(p[1])
     plt.plot(x, y, 'o')
-    plt.show()
+    #plt.show()
+    plt.savefig('henon.png')
