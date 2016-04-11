@@ -28,7 +28,8 @@ def read_csv(filename):
 
 def draw_venn(f, o):
     venn2(subsets=(f, o), set_labels=('Football', 'Others'))
-    plt.show()
+    #plt.show()
+    plt.savefig('venn_sports.png')
 
 if __name__ == '__main__':
     football, others = read_csv('sports.csv')
