@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/doingmathwithpython/code.svg?branch=master)](https://travis-ci.org/doingmathwithpython/code)
+
 # Chapter programs and solutions
 
 Chapter programs/snippets and Solutions to Challenges for "Doing Math with Python".

@@ -1,10 +1,9 @@
 language: python
 python:
-  - "3.3"
-  - "3.4"
   - "3.5"
 install:
   - sudo apt-get update
+  - sudo apt-get -y install libblas-dev liblapack-dev libatlas-base-dev gfortran
   # We do this conditionally because it saves us some downloading if the
   # version is the same.
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
@@ -22,7 +21,7 @@ install:
 
   - conda create -q -n test-dmwp python=$TRAVIS_PYTHON_VERSION sympy matplotlib
   - source activate test-dmwp
-  - pip install matplotlib-venn
+  - conda install -c https://conda.anaconda.org/amitsaha matplotlib-venn
 
 # whitelist
 branches:
