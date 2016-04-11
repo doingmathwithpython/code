@@ -24,5 +24,9 @@ install:
   - source activate test-dmwp
   - pip install matplotlib-venn
 
+# whitelist
+branches:
+  only:
+    - automated_run
 script:
   - ./run.bash
