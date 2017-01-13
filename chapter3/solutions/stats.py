@@ -18,7 +18,7 @@ def median(numbers):
     N = len(numbers)
 
     # sort the list in ascending order
-    numbers.sort()
+    numbers = sorted(numbers)
     
     # find the median
     if N % 2 == 0:
