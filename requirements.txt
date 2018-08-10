@@ -1,4 +1,7 @@
 matplotlib
 sympy
 matplotlib-venn
+
+# secondary dependencies for solutions
 pyowm
+pytz
