@@ -4,8 +4,9 @@ Using https://github.com/csparpa/pyowm
 '''
 import matplotlib.pyplot as plt
 from pyowm import OWM
+import pytz
 
-owm = OWM('54c5451fcc146ce043f4f44153e4ea4b')
+owm = OWM('<token>')
 
 def get_forecast(city):
     # https://github.com/csparpa/pyowm/issues/266
@@ -20,13 +21,19 @@ def get_forecast(city):
     
     data_points = ['temp', 'temp_max', 'temp_min', 'temp_kf']
     temp = []
+    date_time = []
     for w in weathers:
         forecast_temp = w.get_temperature('celsius')
-        #for point in data_points:
+        utc_dt = datetime.utcfromtimestamp(w.get_reference_time()).replace(tzinfo=pytz.utc)
+        tz = pytz.timezone('America/New_York')
+        dt = utc_dt.astimezone(tz)
+
+        # print it
+        date_time.append(dt.strftime('%Y-%m-%d %H:%M:%S %Z%z'))
         temp.append(forecast_temp['temp'])
     x = range(1, len(temp)+1)
     plt.plot(x, temp, 'o-')
-    #plt.xticks(x, day_intervals)
+    plt.xticks(x, date_time)
     plt.show()
 
 if __name__ == '__main__':
