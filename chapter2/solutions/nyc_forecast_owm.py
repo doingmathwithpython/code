@@ -26,8 +26,6 @@ def get_forecast(city):
         utc_dt = datetime.utcfromtimestamp(w.get_reference_time()).replace(tzinfo=pytz.utc)
         tz = pytz.timezone('America/New_York')
         dt = utc_dt.astimezone(tz)
-
-        # print it
         date_time.append(dt.strftime('%Y-%m-%d %H:%M'))
         temp.append(forecast_temp['temp'])
     x = range(1, len(temp)+1)
@@ -35,8 +33,6 @@ def get_forecast(city):
     plt.xticks(x, date_time, rotation=45)
     plt.show()
 
-if __name__ == '__main__':
-    get_forecast('new york, us')
 
 if __name__ == '__main__':
     get_forecast('new york, us')
