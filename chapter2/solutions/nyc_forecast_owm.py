@@ -32,6 +32,8 @@ def get_forecast(city):
     plt.plot(x, temp, 'o-')
     plt.xticks(x, date_time, rotation=45)
     plt.show()
+    # Uncomment below and comment the previous line to save the image
+    # plt.savefig('nyc_owm_forecast.png')
 
 
 if __name__ == '__main__':
