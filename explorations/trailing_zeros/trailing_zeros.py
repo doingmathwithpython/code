@@ -32,7 +32,7 @@ def trailing_zeros(num):
             zeros = zeros + math.floor(num/math.pow(5, i))
         return zeros 
     else:
-        print("Factorial of a non-positive integer is undefined")
+        print("Factorial of a non-positive non-integer is undefined")
 
 
 if __name__ == "__main__":
