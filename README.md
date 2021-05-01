@@ -1,6 +1,6 @@
 # Doing Math with Python
 
-This repo contains the chapter programs and solutions to challenges discussed in "Doing Math with Python" - written by Amit Saha, published by No Starch Press. Please see the book [website](http://doingmathwithpython.github.io/) to learn more about the book, updates and reviews.
+This repository basically contains the chapter programs and solutions to challenges discussed in "Doing Math with Python" - written by Amit Saha, published by No Starch Press. Please do check the [website](http://doingmathwithpython.github.io/) to learn more about the book, updates and reviews.
 
 # Chapter code
 
@@ -12,12 +12,12 @@ This repo contains the chapter programs and solutions to challenges discussed in
 - [Chapter 6](https://github.com/doingmathwithpython/code/blob/master/chapter6/Chapter6.ipynb)
 - [Chapter 7](https://github.com/doingmathwithpython/code/blob/master/chapter7/Chapter7.ipynb)
 
-If you know what Jupyter (previously, IPython notebooks are), click below to launch the program notebooks in Jupyter powered by Binder:
+If you are familiar with Jupyter (previously, IPython notebooks are), click below to launch the program notebooks in Jupyter powered by Binder:
 
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/doingmathwithpython/code)
 
 # Solutions to challenges
 
-Please see the [blog post](https://doingmathwithpython.github.io/trying-out-solutions.html) on how to download these and try them out.
+Please check the [blog post](https://doingmathwithpython.github.io/trying-out-solutions.html) on how to download these and try them out.
 
 
