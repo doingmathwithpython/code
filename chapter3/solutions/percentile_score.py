@@ -22,6 +22,14 @@ def find_percentile_score(data, percentile):
     if i.is_integer():
         real_idx = int(i-1)
         return data[real_idx]
+    elif i > n:
+        # returns the last element
+        i = n
+        return data[i - 1]
+    elif i < 1:
+        # returns the first element
+        i = 1
+        return data[i - 1]
     else:
         k = int(i)
         f = i - k
