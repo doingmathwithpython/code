@@ -1,0 +1,20 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-env>
+      - matplotlib
+    </py-env>
+</head>
+
+<body>
+	<div id="mpl"></div>
+      <py-script output="mpl">
+import matplotlib.pyplot as plt
+plt.plot([1,2,3], [4,5,6])
+plt
+</py-script>
+</body>
+
+</html>

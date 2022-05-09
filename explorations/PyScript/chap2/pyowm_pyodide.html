@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+  </head>
+  <body>
+    Pyodide test page <br>
+    Open your browser console to see Pyodide output
+    <script type="text/javascript">
+      async function main(){
+        let pyodide = await loadPyodide();
+        console.log(pyodide.runPython(`
+            import sys
+            sys.version
+        `));
+ await pyodide.loadPackage("micropip");
+ await pyodide.loadPackage("setuptools");
+ await pyodide.loadPackage("ssl");
+ await pyodide.loadPackage("matplotlib");
+ pyodide.runPythonAsync(`
+ import micropip
+ import pyodide
+ import json
+ import matplotlib.pyplot as plt
+ from unittest import mock
+ from datetime import datetime
+ import pytz
+ 
+ await micropip.install('pyowm')
+ await micropip.install('pytz')
+ from pyowm import OWM
+ 
+ class MyResponse:
+     def __init__(self, status_code, message, json_body):
+         self.status_code = status_code
+         self.text = message
+         self.json_body = json_body
+     def json(self):
+        return self.json_body
+  
+ class PyodideRequests:
+     def __init__(self):
+         pass
+
+     def get(self, uri, **kwargs):
+         print("URI", uri)
+         print("Got kwargs", kwargs)
+         query_params = []
+         for k, v in kwargs["params"].items():
+             query_params.append(k + "=" + v) 
+         query_string = "&".join(query_params)
+         response = pyodide.open_url(uri + "?" + query_string)
+         json_response = response.getvalue()
+         d = json.loads(json_response)
+         return MyResponse(int(d["cod"]), d["message"], json.loads(json_response))
+ 
+ pyodide_requests = PyodideRequests()
+ fig = plt.figure()
+ with mock.patch('pyowm.commons.http_client.requests', pyodide_requests):
+     # Get a token from https://home.openweathermap.org/users/sign_up
+     owm = OWM('token')
+     mgr = owm.weather_manager()
+     three_h_forecast = mgr.forecast_at_place('new york, us', '3h').forecast
+     temp = []
+     date_time = []
+     for w in three_h_forecast:
+         forecast_temp = w.temperature('celsius')
+         utc_dt = datetime.utcfromtimestamp(w.reference_time()).replace(tzinfo=pytz.utc)
+         tz = pytz.timezone('America/New_York')
+         dt = utc_dt.astimezone(tz)
+         date_time.append(dt.strftime('%Y-%m-%d %H:%M'))
+         temp.append(forecast_temp['temp'])
+     x = range(1, len(temp)+1)
+     plt.plot(x, temp, 'o-')
+     plt.xticks(x, date_time, rotation=45)
+     plt.show()
+ fig
+`);
+      }
+      main();
+    </script>
+  </body>
+</html>

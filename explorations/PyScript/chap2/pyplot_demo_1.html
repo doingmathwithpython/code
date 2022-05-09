@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-env>
+    - matplotlib
+  </py-env>
+</head>
+
+<body>
+  <div id="mpl"></div>
+  <py-script output="mpl">
+import matplotlib.pyplot
+
+def create_graph():
+    x_numbers = [1, 2, 3]
+    y_numbers = [2, 4, 6]
+    matplotlib.pyplot.plot(x_numbers, y_numbers)
+
+fig = matplotlib.pyplot.figure()
+create_graph()
+fig
+  </py-script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-env>
+    - matplotlib
+  </py-env>
+</head>
+
+<body>
+  <div id="mpl"></div>
+  <py-script output="mpl">
+x_numbers = [1, 2, 3]
+y_numbers = [2, 4, 6]
+import matplotlib.pyplot as plt
+fig = plt.figure()
+
+from pylab import plot, show
+plot(x_numbers, y_numbers)
+fig
+
+print("hello world!!")
+#import matplotlib.pyplot as plt
+#plt.plot(x_numbers, y_numbers)
+#plt
+  </py-script>
+</body>
+
+</html>

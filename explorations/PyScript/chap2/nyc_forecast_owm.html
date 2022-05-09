@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-env>
+    - matplotlib
+    - setuptools
+    - pyowm
+    - pytz
+  </py-env>
+</head>
+
+<body>
+  <div id="mpl"></div>
+  <py-script output="mpl">
+import pyodide
+import json
+import matplotlib.pyplot as plt
+from unittest import mock
+from datetime import datetime
+import pytz
+ 
+from pyowm import OWM
+ 
+class MyResponse:
+    def __init__(self, status_code, message, json_body):
+        self.status_code = status_code
+        self.text = message
+        self.json_body = json_body
+    def json(self):
+       return self.json_body
+  
+class JustEnoughRequests:
+    def __init__(self):
+        pass
+
+    def get(self, uri, **kwargs):
+        print("Sending request to:", uri)
+        print("Got kwargs, igoring everyting other than params", kwargs)
+        query_params = []
+        for k, v in kwargs["params"].items():
+            query_params.append(k + "=" + v) 
+        query_string = "&".join(query_params)
+        response = pyodide.open_url(uri + "?" + query_string)
+        json_response = response.getvalue()
+        d = json.loads(json_response)
+        return MyResponse(int(d["cod"]), d["message"], json.loads(json_response))
+ 
+just_enough_requests = JustEnoughRequests()
+fig = plt.figure()
+with mock.patch('pyowm.commons.http_client.requests', just_enough_requests):
+    # Get a token from https://home.openweathermap.org/users/sign_up
+    owm = OWM('your token')
+    mgr = owm.weather_manager()
+    three_h_forecast = mgr.forecast_at_place('new york, us', '3h').forecast
+    temp = []
+    date_time = []
+    for w in three_h_forecast:
+        forecast_temp = w.temperature('celsius')
+        utc_dt = datetime.utcfromtimestamp(w.reference_time()).replace(tzinfo=pytz.utc)
+        tz = pytz.timezone('America/New_York')
+        dt = utc_dt.astimezone(tz)
+        date_time.append(dt.strftime('%Y-%m-%d %H:%M'))
+        temp.append(forecast_temp['temp'])
+    x = range(1, len(temp)+1)
+    plt.plot(x, temp, 'o-')
+    plt.xticks(x, date_time, rotation=45)
+fig
+  </py-script>
+</body>
+
+</html>
+
